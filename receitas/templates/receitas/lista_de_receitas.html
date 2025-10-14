@@ -1,18 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <title>Lista de Receita</title>
     <link rel="stylesheet" href="{% static 'receitas/css/estilo.css' %}">
-    <title>Title</title>
 </head>
 <body>
-    <h1>Nossas Receitas /h1>
+    <h1>Nossas Receitas </h1>
     <ul>
         {% for receita in receitas %}
            <!-- <li>{{ receita.titulo }} /li> -->
-           <a href="{% url 'detalhe_da_receita' receita.pk %}">{{ receita.titulo }} /a>
+            <li>
+               <a href="{% url 'detalhe_da_receita' receita.pk %}">{{ receita.titulo }}</a>
+            </li>
         {% endfor %}
     </ul>
-
+    <a href="{% url 'adicionar_receita' %}">Adicinar receita</a>
 </body>
 </html>
